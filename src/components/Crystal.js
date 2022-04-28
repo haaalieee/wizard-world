@@ -19,7 +19,7 @@ export default function Crystal({ v = new THREE.Vector3(), ...props }) {
   const [active, setActive] = useState(false);
 
    /*--- Set click location of object --*/
-  const [_, setLocation] = useLocation();
+  const [, setLocation] = useLocation();
 
   useCursor(active);
 
