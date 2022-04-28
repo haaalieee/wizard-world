@@ -13,6 +13,7 @@ export default function BaseContainer({ ...props }) {
   const { ref, actions } = useAnimations(animations);
 
   useEffect(() => {
+    /*--- Play object default animation --*/
     actions["Take 001"].play();
   }, [actions]);
 

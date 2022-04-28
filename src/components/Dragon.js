@@ -17,13 +17,16 @@ export default function Dragon({ ...props }) {
   const { ref, actions } = useAnimations(animations);
   const [isVisible, setIsVisible] = useState(false);
 
+  /*--- Load fireball object and animation to scene --*/ 
   const reffireball = useRef();
   const fb = useGLTF("/fireball.gltf");
   const fbactions = useAnimations(fb.animations, fb.scene);
 
+  /*--- Add mouse location interaction on viewport--*/ 
   const vec = new Vector3();
   const viewport = useThree((state) => state.viewport);
 
+  /*--- Add transition effect to fireball object when invoked --*/ 
   const transition = useTransition( isVisible, {
     from: { x: -100, y: -100, z: -100, opacity: 0},
     enter: { x: 0, y: 0, z: 0, opacity: 1},
@@ -31,11 +34,14 @@ export default function Dragon({ ...props }) {
   })
 
   useEffect(() => {
+    /*--- Play object default animation --*/ 
     actions["Take 001"].play();
     fbactions.actions["Default Take"].play();
   }, [actions, fbactions]);
 
   useFrame((state, delta) => {
+
+    /*--- Update dragon location based on mouse location --*/ 
     ref.current.position.lerp(
       vec.set((state.mouse.x * viewport.width) / 2, -12, 3),
       0.1

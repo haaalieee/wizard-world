@@ -3,6 +3,7 @@ import { Menu, Button } from "antd";
 import Icon, { HomeOutlined } from "@ant-design/icons";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 
+/*-- Custom svg icons for nav --*/
 const WizardSvg = () => (
   <svg
     className="wizard-icon"
@@ -41,6 +42,7 @@ const BallPitSvg = () => (
   </svg>
 );
 
+/*-- Export reusable icon component --*/
 const WizardIcon = (props) => <Icon component={WizardSvg} {...props} />;
 const DragonIcon = (props) => <Icon component={DragonSvg} {...props} />;
 const BallPitIcon = (props) => <Icon component={BallPitSvg} {...props} />;

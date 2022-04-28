@@ -1,6 +1,7 @@
 import { Html, useProgress } from "@react-three/drei";
 
 export default function Loader() {
+  /*-- Loader view on component initialization--*/
   const { progress } = useProgress();
   return (
     <Html className="loader" center>

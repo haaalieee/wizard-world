@@ -5,6 +5,7 @@ import Planet from "./Planet";
 import Dragon from "./Dragon";
 import { a } from "@react-spring/three";
 
+/*-- Update camera matix based on mouse interactions --*/
 function Rig() {
   const { camera, mouse } = useThree();
   const vec = new THREE.Vector3();
@@ -17,11 +18,15 @@ function Rig() {
 }
 
 export default function DragonWorld({v = new THREE.Vector3(), ...props }) {
+  /*-- Reference for planet object --*/
   const planet = useRef();
 
   useFrame(({ clock, camera }) => {
+
+    /*-- Add rotation animation to planet --*/
     planet.current.rotation.x = (clock.getElapsedTime() * Math.PI) / 7;
 
+    /*-- Update camera matrix when view is from other href location --*/
     camera.fov = THREE.MathUtils.lerp(
       camera.fov,
       90,
@@ -38,7 +43,7 @@ export default function DragonWorld({v = new THREE.Vector3(), ...props }) {
       v.set(0, 2, 16),
       0.05
     );
-    
+
     camera.updateProjectionMatrix();
 
   });

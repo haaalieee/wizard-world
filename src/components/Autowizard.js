@@ -19,15 +19,19 @@ export default function Autowizard({ v = new THREE.Vector3(), ...props }) {
   const toggleCallOut = useCallOutUpdate();
   const zoom = useCallOut();
   
+  /*--- Set cursor when hovered --*/
   useCursor(active);
 
   useEffect(() => {
     const action = actions["Take 001"];
+    /*--- Clip only at idle animation --*/
     action.getClip().duration = 4.7;
+    /*--- Play animation --*/
     action.play();
   }, [actions]);
 
   useFrame((state) => {
+     /*--- Set camera view when click function is invoked on the object --*/
     state.camera.fov = THREE.MathUtils.lerp(
       state.camera.fov,
       zoom ? 25 : 90,
@@ -44,6 +48,7 @@ export default function Autowizard({ v = new THREE.Vector3(), ...props }) {
       v.set(zoom ? 25 : 0, zoom ? 1 : 2, zoom ? 0 : 16),
       0.05
     );
+    /*--- Update camera settings--*/
     state.camera.updateProjectionMatrix();
   });
 

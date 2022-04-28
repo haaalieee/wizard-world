@@ -5,6 +5,8 @@ import { Button } from "antd";
 import { SoundOutlined, AudioMutedOutlined } from "@ant-design/icons";
 
 const Music = () => {
+
+  /*-- Add toggle music function --*/
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (

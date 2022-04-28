@@ -5,6 +5,7 @@ import { useCallOut, useCallOutUpdate } from "../context/WizardContext";
 import { Link } from "wouter";
 import "antd/dist/antd.css";
 
+/*-- Data for overlay text, export this when data is dynamic --*/
 const attractions = [
   {
     name: "Dragon Bump Ride",
@@ -16,6 +17,8 @@ const attractions = [
 ];
 
 export default function OverlayText({ index, position, rotation }) {
+  
+  /*-- Get context update for callout states --*/
   const isVisible = useCallOut();
   const toggleCallOut = useCallOutUpdate();
 

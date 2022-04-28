@@ -6,6 +6,7 @@ import { Switch, Route } from "wouter";
 import { a } from "@react-spring/three";
 
 export default function WorldContainer({ transition }) {
+  /*-- Add transition to each location --*/
   return transition(({ ...props }, location) => (
     <a.group {...props}>
       <Switch location={location}>

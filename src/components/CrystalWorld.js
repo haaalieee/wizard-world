@@ -1,8 +1,8 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import { Physics, usePlane, useSphere } from "@react-three/cannon";
-// import { EffectComposer, SSAO, Bloom } from "@react-three/postprocessing";
 import { a } from "@react-spring/three";
 
+/*--- Add constraints for view so that ball instances will not fall --*/
 function Borders() {
   const { viewport } = useThree();
   return (
@@ -25,11 +25,13 @@ function Borders() {
   );
 }
 
+/*--- Reusable plane component for Borders --*/
 function Plane({ color, ...props }) {
   usePlane(() => ({ ...props }));
   return null;
 }
 
+/*--- Create ball instances object when on load--*/
 function InstancedSpheres({ count = 200 }) {
   const { viewport } = useThree();
   const [ref] = useSphere((index) => ({
@@ -50,6 +52,7 @@ function InstancedSpheres({ count = 200 }) {
   );
 }
 
+/*--- Add physics for balls to move when hovered with cursor--*/
 function Mouse() {
   const { viewport } = useThree();
   const [, api] = useSphere(() => ({ type: "Kinematic", args: [6] }));

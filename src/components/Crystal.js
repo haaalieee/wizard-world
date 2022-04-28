@@ -14,13 +14,19 @@ import { useLocation } from "wouter";
 export default function Crystal({ v = new THREE.Vector3(), ...props }) {
   const { scene, animations } = useGLTF("/crystal.gltf");
   const { ref, actions } = useAnimations(animations);
+  
+  /*--- Add hover state to object --*/
   const [active, setActive] = useState(false);
+
+   /*--- Set click location of object --*/
   const [_, setLocation] = useLocation();
 
   useCursor(active);
 
   useEffect(() => {
+    /*--- Play default animation object-*/
     actions["Take 001"].play();
+    
   }, [actions]);
 
   return (

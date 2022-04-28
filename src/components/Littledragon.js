@@ -16,28 +16,24 @@ export default function Littledragon({ ...props }) {
   const { ref, actions } = useAnimations(animations);
 
   useEffect(() => {
+    /*-- Clip default little dragon animation--*/
     const action = actions["Take 001"];
     action.getClip().duration = 0.7;
     action.play();
   }, [actions]);
 
   useFrame(({ clock }) => {
+    /*-- Add dragon rotation animation--*/
     ref.current.rotation.y = THREE.MathUtils.lerp(
       ref.current.rotation.y,
       Math.cos(clock.getElapsedTime() / 2) * 2,
       0.05
     );
-
+    /*-- Add dragon position animation--*/
     ref.current.position.z = -Math.sin(clock.getElapsedTime() / 2) * 3;
   });
 
-  return (
-    <primitive
-      object={scene}
-      {...props}
-      ref={ref}
-    />
-  );
+  return <primitive object={scene} {...props} ref={ref} />;
 }
 
 useGLTF.preload("/littledragon.gltf");
