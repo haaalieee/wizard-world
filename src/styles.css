@@ -1,0 +1,207 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.App {
+  position: relative
+}
+
+.App > div:nth-child(1) {
+  width: 256px;
+  position: absolute;
+  z-index: 2000;
+  top: 19px;
+  left: 21px;
+}
+
+.App .wizard-icon {
+  fill: #f5b25d;
+}
+
+.App .wizard-menu {
+  background-color: #6d0a01;
+  border-color: #6d0a01;
+  height: 46px;
+}
+
+.App .wizard-menu:hover,
+.App .wizard-menu:focus
+ {
+  background-color: #001529;
+  border-color: #f5b25d;
+}
+
+.App .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: #6d0a01;
+}
+
+.App .ant-btn-primary {
+  color: #fff;
+  border-color: #ffffff;
+  background: #6d0a01;
+}
+
+.App .ant-btn-primary:active,
+.App .ant-btn-primary:hover
+ {
+  color: #001529;
+  border-color: #ffffff;
+  background: #f5b25d;
+}
+
+.App .ant-btn.ant-btn-background-ghost:active,
+.App .ant-btn.ant-btn-background-ghost:hover  {
+  color: #f2af5b;
+  border-color: #f2af5b;
+}
+
+.App .btn-music {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 2000;
+  margin: 1rem;
+}
+
+canvas {
+  height: 100vh;
+}
+
+.callouts-bottom {
+  width: 95vw;
+  height: 90vh;
+  background-color: #180c00;
+  padding: 6vw;
+  opacity: 98%;
+  position: relative;
+  color: #FFFFFF;
+}
+
+.callouts-bottom:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 800px;
+  bottom: -146px;
+  border: 73px solid transparent;
+  border-top: 74px solid black;
+  z-index: 3;
+}
+
+.callouts-bottom p {
+  font-size: 5rem;
+}
+
+.callouts-bottom .callouts-btn-wrapper {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: flex-end;
+  grid-gap: 4.5rem;
+}
+
+.callouts-bottom button,
+.callouts-bottom a {
+  height: 8vw;
+  width: 16vw;
+  font-size: 4vw;
+  line-height: 1.5715 !important;
+}
+
+
+.loader {
+  background: #3a0601;
+  width: 100vw;
+  height: 100vw;
+}
+
+.loader img {
+  width: 7rem;
+  height: 8rem;
+}
+
+.loader-content {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.loader-content .container {
+  max-width: 500px;
+  margin: 50px auto;
+}
+
+.loader-content .container h2 {
+  text-align: center;
+  color: #ffffff;
+}
+
+.loader-content .container .progressbar-container {
+  position: relative;
+  width: 100%;
+  height: 35px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.loader-content .container .progressbar-container .progressbar-complete {
+  position: absolute;
+  left: 0;
+  top: 0px;
+  height: 100%;
+  background-color: #f5b25d;
+  border-radius: 10px;
+  animation: g 2500ms infinite ease-in-out;
+  z-index: 2;
+}
+
+.loader-content
+  .container
+  .progressbar-container
+  .progressbar-complete
+  .progressbar-liquid {
+  z-index: 1;
+  width: 70px;
+  height: 70px;
+  animation: g 2500ms infinite ease-in-out,
+    r 3000ms infinite cubic-bezier(0.5, 0.5, 0.5, 0.5);
+  position: absolute;
+  right: -5px;
+  top: -10px;
+  background-color: #f5b25d;
+  border-radius: 40%;
+}
+
+.loader-content .container .progressbar-container .progress {
+  z-index: 2;
+}
+
+.loader-hat {
+  color: #f5b25d;
+}
+
+@keyframes r {
+  from {
+    transform: rotate(0deg);
+  }
+  from {
+    transform: rotate(360deg);
+  }
+}
