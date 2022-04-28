@@ -29,7 +29,7 @@ export default function OverlayText({ index, position, rotation }) {
     <mesh position={position} rotation={rotation}>
       <sphereGeometry args={[0, 0, 0]} />
       <meshBasicMaterial color="white" />
-      <Html distanceFactor={1.5} position={[0, 0, 0.1]} transform>
+      <Html distanceFactor={3} position={[0, 0, 0.1]} transform>
         {isVisible === true && (
           <div className="callouts-bottom">
             <p>{question[index]}</p>

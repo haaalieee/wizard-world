@@ -4,7 +4,7 @@ export default function Loader() {
   /*-- Loader view on component initialization--*/
   const { progress } = useProgress();
   return (
-    <Html className="loader" center>
+    <Html className="loader" center transform={true}>
       <div className="loader-content">
         <div className="container">
           <h2>{Math.floor(progress)} % loaded</h2>

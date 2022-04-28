@@ -34,18 +34,18 @@ export default function Autowizard({ v = new THREE.Vector3(), ...props }) {
      /*--- Set camera view when click function is invoked on the object --*/
     state.camera.fov = THREE.MathUtils.lerp(
       state.camera.fov,
-      zoom ? 25 : 90,
+      zoom ? 90 : 90,
       0.05
     );
 
     state.camera.near = THREE.MathUtils.lerp(
       state.camera.near,
-      zoom ? 31 : 5,
+      zoom ? 5 : 5,
       0.05
     );
 
     state.camera.position.lerp(
-      v.set(zoom ? 25 : 0, zoom ? 1 : 2, zoom ? 0 : 16),
+      v.set(zoom ? 0 : 0, zoom ? 2 : 2, zoom ? 16 : 16),
       0.05
     );
     /*--- Update camera settings--*/
@@ -57,8 +57,8 @@ export default function Autowizard({ v = new THREE.Vector3(), ...props }) {
       <OverlayText
         {...props}
         index={0}
-        position={[-20, 2.8, 0.5]} 
-        rotation={[0, Math.PI / 2, 0]}
+        position={[0,0, 0]} 
+        rotation={[0, 0, 0]}
       />
       <primitive
         object={scene}

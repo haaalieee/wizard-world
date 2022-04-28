@@ -14,7 +14,7 @@ export default function HomeWorld({ ...props }) {
         scale={0.01}
         rotation={[0, 1, 0]}
       />
-      <Crystal position={[11, -5.4, 2]} scale={0.02} />
+      <Crystal position={[14, -5.5, -0.8]} scale={0.02} />
       <WizardProvider>
         <Autowizard
           scale={0.15}

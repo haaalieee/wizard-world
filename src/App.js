@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { PresentationControls, PerspectiveCamera } from "@react-three/drei";
 import { WorldProvider } from "./context/WorldContext";
 import Nav from "./components/Nav";
 import Music from "./components/Music";
@@ -8,7 +8,7 @@ import WorldContainer from "./components/WorldContainer";
 import { useLocation } from "wouter";
 import { useTransition } from "@react-spring/core";
 import { Stars } from "@react-three/drei";
-import Loader from './components/Loader';
+import Loader from "./components/Loader";
 
 function App() {
   // Current route
@@ -20,19 +20,19 @@ function App() {
       opacity: 0,
       position: [0, 0, -20],
       rotation: [0, Math.PI, 0],
-      scale: [0, 0, 0]
+      scale: [0, 0, 0],
     },
     enter: {
       opacity: 1,
       position: [0, 0, 0],
       rotation: [0, 0, 0],
-      scale: [1, 1, 1]
+      scale: [1, 1, 1],
     },
     leave: {
       opacity: 0,
       position: [0, 0, -10],
       rotation: [0, -Math.PI, 0],
-      scale: [0, 0, 0]
+      scale: [0, 0, 0],
     },
   });
 
@@ -55,18 +55,20 @@ function App() {
             shadow-bias={-0.0001}
           />
         </PerspectiveCamera>
-        <Suspense fallback={<Loader/>}>
-          <WorldProvider>
-              <WorldContainer transition={transition}/>
+        <PresentationControls
+          global
+          zoom={0.8}
+          rotation={[0, 0, 0]}
+          polar={[0, Math.PI / 4]}
+          azimuth={[-Math.PI / 4, Math.PI / 4]}
+        >
+          <Suspense fallback={<Loader />}>
+            <WorldProvider>
+              <WorldContainer transition={transition} />
               <Stars radius={500} count={1000} factor={10} />
-          </WorldProvider>
-        </Suspense>
-        <OrbitControls
-          enablePan={false}
-          enableZoom={false}
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
-        />
+            </WorldProvider>
+          </Suspense>
+        </PresentationControls>
       </Canvas>
     </div>
   );
