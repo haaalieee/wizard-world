@@ -12,7 +12,7 @@ import { useGLTF, useAnimations, useCursor } from "@react-three/drei";
 import { useCallOut, useCallOutUpdate } from "../context/WizardContext";
 import OverlayText from "./OverlayText";
 
-export default function Model({ v = new THREE.Vector3(), ...props }) {
+export default function Autowizard({ v = new THREE.Vector3(), ...props }) {
   const { scene, animations } = useGLTF("/autowizard.gltf");
   const { ref, actions } = useAnimations(animations);
   const [active, setActive] = useState(false);

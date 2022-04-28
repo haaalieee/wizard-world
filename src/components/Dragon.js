@@ -12,7 +12,7 @@ import { useFrame, useThree } from "@react-three/fiber";
 import { a, useTransition } from "@react-spring/three";
 import Fireball from "./Fireball";
 
-export default function Model({ ...props }) {
+export default function Dragon({ ...props }) {
   const { scene, animations } = useGLTF("/dragon.gltf");
   const { ref, actions } = useAnimations(animations);
   const [isVisible, setIsVisible] = useState(false);

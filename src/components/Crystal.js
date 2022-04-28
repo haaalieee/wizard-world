@@ -8,11 +8,14 @@ title: Crystal Ball
 import * as THREE from "three";
 import React, { useEffect, useState } from "react";
 import { useGLTF, useAnimations, useCursor } from "@react-three/drei";
+import { useLocation } from "wouter";
 
-export default function Model({ v = new THREE.Vector3(), ...props }) {
+
+export default function Crystal({ v = new THREE.Vector3(), ...props }) {
   const { scene, animations } = useGLTF("/crystal.gltf");
   const { ref, actions } = useAnimations(animations);
   const [active, setActive] = useState(false);
+  const [_, setLocation] = useLocation();
 
   useCursor(active);
 
@@ -27,6 +30,7 @@ export default function Model({ v = new THREE.Vector3(), ...props }) {
       ref={ref}
       onPointerOver={() => setActive(true)}
       onPointerOut={() => setActive(false)}
+      onClick={() => setLocation("/ballpit-treasure")}
     />
   );
 }

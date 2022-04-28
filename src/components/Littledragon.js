@@ -11,7 +11,7 @@ import React, { useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useGLTF, useAnimations } from "@react-three/drei";
 
-export default function Model({ ...props }) {
+export default function Littledragon({ ...props }) {
   const { scene, animations } = useGLTF("/littledragon.gltf");
   const { ref, actions } = useAnimations(animations);
 

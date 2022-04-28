@@ -11,7 +11,7 @@ import { useGLTF } from '@react-three/drei';
 import "../shaders/ParticleMaterial";
 import ParticleMaterial from '../shaders/ParticleMaterial';
 
-export default function Model({ ...props }) {
+export default function Face({ ...props }) {
   const group = useRef();
   const { nodes, materials } = useGLTF('/face.gltf');
   

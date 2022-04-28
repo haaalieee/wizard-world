@@ -8,7 +8,7 @@ title: Mozilla Hubs Challenge - Wizard’s Library
 import React, { useEffect } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 
-export default function Model({ ...props }) {
+export default function BaseContainer({ ...props }) {
   const { scene, animations } = useGLTF('/world.gltf');
   const { ref, actions } = useAnimations(animations);
 

@@ -193,10 +193,6 @@ canvas {
   z-index: 2;
 }
 
-.loader-hat {
-  color: #f5b25d;
-}
-
 @keyframes r {
   from {
     transform: rotate(0deg);
