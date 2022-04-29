@@ -188,3 +188,17 @@ canvas {
     transform: rotate(360deg);
   }
 }
+
+@media screen and (max-width: 560px){
+  .callouts-bottom {
+    width: 64rem;
+    height: 47rem;
+    padding: 6rem;
+  }
+
+  .callouts-bottom button, .callouts-bottom a {
+    height: 7rem;
+    width: 14rem;
+    font-size: 4rem;
+  }
+}
